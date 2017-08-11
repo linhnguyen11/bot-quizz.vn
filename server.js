@@ -297,28 +297,42 @@ function receivedMessage(event) {
       // If we receive a text message, check to see if it matches any special
       // keywords and send back the corresponding example. Otherwise, just echo
       // the text we received.
-      if (messageText.split(" ").some(function(w){return w === 'hello' || w === 'hi' || w === 'chao' || w === 'chào' || w === 'Xinchao' || w === 'hey' || w === 'help'})==true){
+      if (messageText.split(" ").some(function(w){return w === 'hello' || w === 'hi' || w === 'chao' || w === 'chào' || w === 'Xinchao' || w === 'hey' || w === 'help' || w === 'hế' || w === 'nhô' || w === 'lô'})==true){
           sendTextMessage(senderID," Hề lú, mình là BOT đẹp trai thanh lịch nhất hành tinh đây");
-      }else if(messageText.split(" ").some(function(w){return (w === 'Quiz' || w === 'quiz')})==true && messageText.split(" ").some(function(w){return (w === 'là' || w === 'la')})==true && messageText.split(" ").some(function(w){return (w === 'gì' || w === 'gi')})==true){
+      }else if(messageText.split(" ").some(function(w){return (w === 'Quiz' || w === 'quiz' || w === 'topquiz' || w === 'Topquiz' || w === 'TOPQUIZ')})==true && messageText.split(" ").some(function(w){return (w === 'là' || w === 'la')})==true && messageText.split(" ").some(function(w){return (w === 'gì' || w === 'gi')})==true){
           sendTextMessage(senderID," Chơi thử là biết nè! ");
           setTimeout(function(){
             sendQuizMessage(senderID);
           },1000);
-      }else if(messageText.split(" ").some(function(w){return w === 'quiz' || w === 'top' || w === 'quiziq'})==true){
+      }else if(messageText.split(" ").some(function(w){return w === 'Iq' || w === 'iq' || w === 'quiziq'})==true){
           sendTextMessage(senderID," Đợi xíu có ngay cho sếp !");
           setTimeout(function(){
-            sendQuizMessage(senderID);
+            sendQuizIqMessage(senderID);
           },1000);
+      }else if(messageText.split(" ").some(function(w){return w === 'khác' || w === 'khac' || w === 'Khác'})==true && messageText.split(" ").some(function(w){return w === 'biệt' || w === 'biet'})==true){
+          sendTextMessage(senderID," Đợi xíu có ngay cho sếp !");
+          setTimeout(function(){
+            sendQuizKhacbietMessage(senderID);
+          },1000);          
+      }else if(messageText.split(" ").some(function(w){return w === 'Suy' || w === 'suy'})==true && messageText.split(" ").some(function(w){return w === 'luận' || w === 'luan'})==true){
+          sendTextMessage(senderID," Đợi xíu có ngay cho sếp !");
+          setTimeout(function(){
+            sendQuizSuyluanMessage(senderID);
+          },1000);          
       }else if(messageText.split(" ").some(function(w){return w === 'choi' || w === 'chơi' || w === 'Chơi'})==true){
           sendTextMessage(senderID," Đợi xíu có ngay cho sếp !");
           setTimeout(function(){
-            sendButtonMessage(senderID);
+            sendQuizMessage(senderID);
           },1000);
       }else if(messageText.split(" ").some(function(w){return w === 'ngu' || w === 'dốt' || w === 'stupid' || w === 'đù'})==true){
           sendTextMessage(senderID," Ngu là viết tắt của never give up !!");
           setTimeout(function(){
             sendTextMessage(senderID, "Ad không có ngu đâu nhá, ngu tại con bot thôi ^^");
           },1000);
+      }else if(messageText.split(" ").some(function(w){return w === 'ad' || w === 'Ad'})==true && messageText.split(" ").some(function(w){return w === 'ơi' || w === 'oi'})==true){
+          sendTextMessage(senderID," BOT đây, có việc gì không bạn ?");
+      }else if(messageText.split(" ").some(function(w){return w === 'ad' || w === 'Ad'})==true && messageText.split(" ").some(function(w){return w === 'đâu' || w === 'dau'})==true){
+          sendTextMessage(senderID," Ad đang đi vắng, chơi quiz tí đi rồi quay lại hỏi ad nhé");
       }else if(messageText.split(" ").some(function(w){return w === 'ad' || w === 'admin' || w === 'add' || w === 'Ad' || w === 'AD'})==true){
           sendTextMessage(senderID," Bạn muốn biết ad là ai à! Có ngay!");
           setTimeout(function(){
@@ -353,9 +367,11 @@ function receivedMessage(event) {
           sendTextMessage(senderID," Cơm Mẹ Nấu Rồi");
       }else if(messageText.split(" ").some(function(w){return w === '?'})==true){
           sendTextMessage(senderID," Hihi, muốn hỏi gì nào?");
+      }else if(messageText.split(" ").some(function(w){return w === 'ê'})==true){
+          sendTextMessage(senderID," Ê mình có chuyện gì hơm ?");
       }else if(messageText.split(" ").some(function(w){return w === 'ahihi'})==true){
           sendTextMessage(senderID," Chỉ đứa buê đuê biến thái mới cười ahihi thôi ");
-      }else if(messageText.split(" ").some(function(w){return w==='hihi' || w === 'haha' || w === 'Haha' || w === 'kaka' || w === ':)' || w === 'hehe' || w === 'keke'})==true){
+      }else if(messageText.split(" ").some(function(w){return w==='hihi' || w === 'haha' || w === 'Haha' || w === 'kaka' || w === ':)' || w === 'hehe' || w === 'keke' || w === ':D'})==true){
           sendTextMessage(senderID," Cười gì ! Bạn muốn chơi Quiz không?");
       }else if(messageText.split(" ").some(function(w){return w === 'cứu' || w === 'Giúp' || w === 'Cứu' || w === 'Giúp'})==true){
           sendTextMessage(senderID," Có chuyện gì với bạn vậy? Kể mình nghe coi.");
@@ -420,7 +436,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  sendTextMessage(senderID, "Vậy bạn có cần mình giúp đỡ gì không ?");
 }
 
 /*
@@ -681,41 +697,31 @@ function sendCunghoangdaoMessage(recipientId){
           elements: [{
             title: "Ưu điểm tuyệt vời nhất của 12 cung hoàng đạo là gì?",
             subtitle: "Khám phá ưu điểm bản thân qua cung hoàng đạo nhé!",
-            item_url: "http://vi.topquiz.co/quiz/99?ref=mes",               
+            item_url: "http://vi.topquiz.co/quiz/99?utm_source=message&ref=mes",               
             image_url:"http://vi.topquiz.co/public/images/uploads/thumb/quiz_1470906602000/large_quiz_1470906602000.jpeg",
             buttons: [{
               type: "web_url",
-              url: "http://vi.topquiz.co/quiz/99?ref=mes",
-              title: "Chơi Ngay"
-            }]
-          }, {
-            title: "Cung hoàng đạo nào sẽ mang lại may mắn cho bạn?",
-            subtitle: "Đâu là chòm sao sẽ tiếp thêm vô vàn động lực cho bạn đây nhỉ? Cùng nhau khám phá đi nào!",
-            item_url: "http://vi.topquiz.co/quiz/217?ref=mes",               
-            image_url:"http://vi.topquiz.co/public/images/uploads/thumb/quiz_1486434507000/large_quiz_1486434507000.jpeg",
-            buttons: [{
-              type: "web_url",
-              url: "http://vi.topquiz.co/quiz/217?ref=mes",
+              url: "http://vi.topquiz.co/quiz/99?utm_source=message&ref=mes",
               title: "Chơi Ngay"
             }]
           },{
             title: "Cung hoàng đạo nào sẽ mang lại may mắn cho bạn?",
-            subtitle: "Tìm cho mình một cung hoàng đạo &#34;hợp cạ&#34; để mang may mắn đến cho nhau nào!",
-            item_url: "http://vi.topquiz.co/quiz/34?ref=mes",               
+            subtitle: "Tìm cho mình một cung hoàng đạo hợp cạ để mang may mắn đến cho nhau nào!",
+            item_url: "http://vi.topquiz.co/quiz/34?utm_source=message&ref=mes",               
             image_url:"http://vi.topquiz.co/public/images/uploads/thumb/quiz_1471916713000/large_quiz_1471916713000.jpeg",
             buttons: [{
               type: "web_url",
-              url: "http://vi.topquiz.co/quiz/34?ref=mes",
+              url: "http://vi.topquiz.co/quiz/34?utm_source=message&ref=mes",
               title: "Chơi Ngay"
             }]
           },{
-            title: 'Nếu sống trong Hoàng Cung, bạn sẽ là ai?',
-            subtitle: 'Lỡ một ngày như thế thật thì sao nhỉ?',
-            item_url: "http://vi.topquiz.co/quiz/81?ref=mes",               
+            title: "Nếu sống trong Hoàng Cung, bạn sẽ là ai?",
+            subtitle: "Lỡ một ngày như thế thật thì sao nhỉ?",
+            item_url: "http://vi.topquiz.co/quiz/81?utm_source=message&ref=mes",               
             image_url:"http://vi.topquiz.co/public/images/uploads/thumb/quiz_1474528422000/large_quiz_1474528422000.jpeg",
             buttons: [{
               type: "web_url",
-              url: "http://vi.topquiz.co/quiz/81?ref=mes",
+              url: "http://vi.topquiz.co/quiz/81?utm_source=message&ref=mes",
               title: "Chơi Ngay"
             }]
           }]
